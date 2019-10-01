@@ -29,6 +29,8 @@
     <label for="editionYear">Год издания</label>
     <input type="text" name="editionYear" id="editionYear">
     <c:if test="${empty book.title}">
+        <label for="idAuthor.id">Номер автора</label>
+        <input type="number" name="idAuthor.id" id="idAuthor.id">
         <input type="submit" value="Добавить книгу">
     </c:if>
     <c:if test="${!empty book.title}">

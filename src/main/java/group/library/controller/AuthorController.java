@@ -77,7 +77,8 @@ public class AuthorController {
     public ModelAndView showBooks(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("books");
-        List<Book> books = authorService.getBooks(authorService.getById(id));
+        Author author = authorService.getById(id);
+        List<Book> books = authorService.getBooks(author);
         modelAndView.addObject("booksList", books);
         return modelAndView;
     }
