@@ -1,5 +1,7 @@
 package group.library.model;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +39,7 @@ public class Book {
         this.idAuthor= idAuthor;
     }
 
+    @Transactional
     public int getId() {
         return id;
     }
