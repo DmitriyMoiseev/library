@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <title>АВТОРЫ</title>
@@ -29,9 +29,11 @@
     </c:forEach>
 </table>
 
-<h2>Добавить</h2>
-<c:url value="/author/add" var="add"/>
-<a href="${add}">Добавить нового автора</a>
+<h2><c:url value="/author/add" var="add"/>
+    <a href="${add}">Добавить нового автора</a></h2>
+
+<h3><form action="/" method="get">
+    <input type="submit" value="На главную страницу"></form></h3>
 
 </body>
 </html>
