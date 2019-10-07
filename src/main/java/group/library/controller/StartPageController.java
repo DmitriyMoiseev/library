@@ -7,12 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class StartPageController {
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showStartPage(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
     }
-
 }

@@ -2,7 +2,6 @@ package group.library.controller;
 
 import group.library.model.Book;
 import group.library.service.BookService;
-import group.library.service.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,7 +23,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/book", method = RequestMethod.GET)
-    public ModelAndView allFilms() {
+    public ModelAndView showAllBooks() {
         List<Book> books = bookService.allBooks();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("books");
@@ -33,7 +32,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/book/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editPage(@PathVariable("id") int id) {
+    public ModelAndView showEditBookPage(@PathVariable("id") int id) {
         Book book = bookService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPage");
@@ -50,7 +49,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/book/add", method = RequestMethod.GET)
-    public ModelAndView addPage() {
+    public ModelAndView showBookAddPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPage");
         return modelAndView;
@@ -72,5 +71,4 @@ public class BookController {
         bookService.delete(book);
         return modelAndView;
     }
-
 }

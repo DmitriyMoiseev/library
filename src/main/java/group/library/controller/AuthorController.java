@@ -24,7 +24,7 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/author", method = RequestMethod.GET)
-    public ModelAndView allAuthors() {
+    public ModelAndView showAllAuthors() {
         List<Author> authors = authorService.allAuthors();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("authors");
@@ -33,7 +33,7 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/author/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editPage(@PathVariable("id") int id) {
+    public ModelAndView showEditAuthorPage(@PathVariable("id") int id) {
         Author author = authorService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPageAuthor");
@@ -50,7 +50,7 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/author/add", method = RequestMethod.GET)
-    public ModelAndView addPage() {
+    public ModelAndView showAuthorAddPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPageAuthor");
         return modelAndView;
@@ -74,7 +74,7 @@ public class AuthorController {
     }
 
     @RequestMapping(value="/author/show/{id}", method = RequestMethod.GET)
-    public ModelAndView showBooks(@PathVariable("id") int id) {
+    public ModelAndView showBooksOfAuthor(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("books");
         Author author = authorService.getById(id);
@@ -82,13 +82,4 @@ public class AuthorController {
         modelAndView.addObject("booksList", books);
         return modelAndView;
     }
-
-/*    @RequestMapping(value = "/author/show", method = RequestMethod.POST)
-    public ModelAndView showBooks(@ModelAttribute("author") Author author) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/author/");
-        authorService.edit(author);
-        return modelAndView;
-    }*/
-
 }

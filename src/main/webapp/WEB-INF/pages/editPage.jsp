@@ -34,6 +34,7 @@
         <input type="submit" value="Добавить книгу">
     </c:if>
     <c:if test="${!empty book.title}">
+        <input type="hidden" name="idAuthor.id" value="${book.idAuthor.id}">
         <input type="submit" value="Редактировать книгу">
     </c:if>
 </form>

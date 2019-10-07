@@ -1,10 +1,6 @@
 package group.library.model;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -31,7 +27,7 @@ public class Book {
     @JoinColumn(name = "id_author")
     private Author idAuthor;
 
-    public Author getIdAuthor() {
+    public Author getIdAuthor()  {
         return idAuthor;
     }
 
@@ -39,7 +35,6 @@ public class Book {
         this.idAuthor= idAuthor;
     }
 
-    @Transactional
     public int getId() {
         return id;
     }
